@@ -1,0 +1,55 @@
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 20px;
+    margin: 0 1rem;
+}
+
+.prod-div {
+    align-items: center;
+    text-decoration: center;
+}
+
+.input-div {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.input-div input {
+    width: 70%;
+    padding: 1rem;
+    font-size: 1.3rem;
+    justify-content: center;
+}
+
+.input-div button {
+    margin-left: 10px;
+    padding: 1rem;
+    font-size: 1.3rem;
+    background-color: black;
+    color: white;
+    cursor: pointer
+}
+
+.navbar-container {
+    padding: .3rem 0;
+    text-align: center;
+    background-color: rgb(139, 139, 139);
+}
+
+.navbar-container .nav-brand {
+    display: flex;
+}
+
+.navbar-container .nav-brand img {
+    width: 75px;
+    height: 55px;
+}
+
+
+.navbar-container .nav-brand h1 {
+    margin-top: 4px;
+    text-align: center;
+}
