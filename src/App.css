@@ -81,7 +81,7 @@
         font-size: .7rem;
     }
 
-    .navbar-container h1{
+    .navbar-container h1 {
         text-align: center;
     }
 
@@ -96,8 +96,7 @@
     .products {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        padding: 20px;
+
     }
 
     .products h2 {
