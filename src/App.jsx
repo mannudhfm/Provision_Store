@@ -1,4 +1,5 @@
 import './App.css'
+import About from './Components/About';
 import Login from './Components/Login';
 import NavBar from './Components/NavBar';
 import Product from './Components/Product';
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' exact element={<Login />}></Route>
         <Route path='/product-list' exact element={<div><NavBar /><Product /></div>}>
         </Route>
+        <Route path='/about' exact element={<div><NavBar /><About /></div>}></Route>
       </Routes>
     </Router>
   )

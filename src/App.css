@@ -34,6 +34,8 @@
 }
 
 .navbar-container {
+    display: flex;
+    justify-content: space-between;
     padding: .3rem 0;
     text-align: center;
     background-color: rgb(139, 139, 139);
@@ -41,6 +43,8 @@
 
 .navbar-container .nav-brand {
     display: flex;
+    align-self: center;
+    cursor: pointer;
 }
 
 .navbar-container .nav-brand img {
@@ -52,4 +56,22 @@
 .navbar-container .nav-brand h1 {
     margin-top: 4px;
     text-align: center;
+}
+
+.navbar-container .about {
+    align-self: center;
+
+}
+
+.navbar-container h2 {
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.about-container{
+    margin: 2rem 4rem;
+}
+
+.about-container li{
+    margin: 1rem;
 }

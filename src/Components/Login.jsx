@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -9,50 +8,37 @@ const Login = () => {
     const navigate = useNavigate()
 
     const handleLogin = async () => {
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('grant_type', 'password');
+
         try {
-            // Validate email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Invalid email format');
-                return;
-            }
-
-            // Validate password
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-            if (!passwordRegex.test(password)) {
-                alert('Invalid password format');
-                return;
-            }
-
-            // Convert password to sha256 format
-
-            // Call login API
-            const loginResponse = await axios.post('https://apiv2stg.promilo.com/user/oauth/token', {
-                username: email,
-                password: password,
-                grant_type: 'password',
+            const response = await fetch('https://apiv2stg.promilo.com/user/oauth', {
+                method: 'POST',
+                body: formData,
             });
 
-            const accessToken = loginResponse.data.access_token;
+            console.log('Response Headers:', response.headers); // Log response headers for debugging
 
-            // Call product list API with access token in header
-            const productListResponse = await axios.get('https://api.kalpav.com/api/v1/product/category/retail', {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-
-            console.log('Product List:', productListResponse.data);
-            navigate('/product-list')
+            if (response.ok) {
+                const data = await response.json();
+                // Handle the successful response, for example, store the access token.
+                console.log('Access Token:', data.access_token);
+                navigate('/product-list')
+            } else {
+                // Handle errors
+                console.error('Failed to login:', response.status, response.statusText);
+            }
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error during login:', error);
         }
     };
 
     return (
         <div>
             <label>Email:</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
 
             <label>Password:</label>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
