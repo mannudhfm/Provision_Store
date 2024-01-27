@@ -14,20 +14,18 @@ const Login = () => {
         formData.append('grant_type', 'password');
 
         try {
-            const response = await fetch('https://apiv2stg.promilo.com/user/oauth', {
+            const response = await fetch('https://apiv2stg.promilo.com/user/oauth/token', {
                 method: 'POST',
                 body: formData,
             });
 
-            console.log('Response Headers:', response.headers); // Log response headers for debugging
+            console.log('Response Headers:', response.headers);
 
             if (response.ok) {
                 const data = await response.json();
-                // Handle the successful response, for example, store the access token.
                 console.log('Access Token:', data.access_token);
                 navigate('/product-list')
             } else {
-                // Handle errors
                 console.error('Failed to login:', response.status, response.statusText);
             }
         } catch (error) {
