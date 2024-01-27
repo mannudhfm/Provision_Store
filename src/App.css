@@ -68,10 +68,25 @@
     cursor: pointer;
 }
 
-.about-container{
+.about-container {
     margin: 2rem 4rem;
 }
 
-.about-container li{
+.about-container li {
     margin: 1rem;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .navbar-container .nav-brand {
+        font-size: .7rem;
+    }
+
+    .navbar-container {
+        height: 60px;
+    }
+
+    .navbar-container h2 {
+        font-size: .9rem;
+    }
+
 }

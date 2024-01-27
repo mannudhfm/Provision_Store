@@ -15,6 +15,10 @@ const Product = () => {
         fetchProducts()
     }, [])
 
+    const handleInputChange = (e) => {
+        setSearchInput(e.target.value)
+    }
+
     const handleKeyEnter = (e) => {
         if (e.key === 'Enter') {
             handleButtonClick()
@@ -30,7 +34,7 @@ const Product = () => {
     return (
         <div className="prod-container">
             <div className="input-div">
-                <input type="text" placeholder="Search here..." value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={handleKeyEnter} />
+                <input type="text" placeholder="Search here..." value={searchInput} onChange={handleInputChange} onKeyDown={handleKeyEnter} />
                 <button onClick={handleButtonClick}>Search</button>
             </div>
             <div className="products">
