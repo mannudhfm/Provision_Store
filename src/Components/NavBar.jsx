@@ -6,7 +6,7 @@ const NavBar = () => {
     const navigate = useNavigate()
     return (
         <div className='navbar-container'>
-            <div className='nav-brand' onClick={() => navigate('/product-list')}>
+            <div className='nav-brand' onClick={() => navigate('/')}>
                 <img src={img} alt="logo" />
                 <h1>Provision Store</h1>
             </div>
